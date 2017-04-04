@@ -1,4 +1,6 @@
-<div class="nav nav-pills">
-  <p><%= message.content %></p>
-  <p><%= message.user.email.split('@').first %></p>
-</div>
+<li class="message appeared <%=message.user == current_user ? 'right' : 'left' %>">
+  <div class="avatar"></div>
+  <div class="text_wrapper">
+      <div class="text"><%= message.content %></div>
+  </div>
+</li>
