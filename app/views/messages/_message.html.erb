@@ -1,6 +1,9 @@
-<li class="message appeared <%= message.user == current_user ? 'right' : 'left' %>">
+<li class="message appeared left">
   <div class="avatar"></div>
   <div class="text_wrapper">
-      <div class="text"><%= message.content %></div>
-  </div>
+      <div class="text">
+        <%= message.content %>
+      </div>
+      <div class=" text pull-right small"><%= "#{time_ago_in_words(message.created_at)} ago by #{message.user.email.split('@').first}" %></div> 
+  </div> 
 </li>

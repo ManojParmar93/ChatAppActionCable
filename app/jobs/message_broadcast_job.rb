@@ -7,7 +7,6 @@ class MessageBroadcastJob < ApplicationJob
 
   private
   def render_message(message, current_user)
-    binding.pry
     ApplicationController.renderer.render(partial: 'messages/message', locals: {message: message, current_user: current_user})
   end
 end

@@ -9,7 +9,6 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     message = Message.new(content: data['message'], user_id: data['user_id'])
-    binding.pry
     if message.save
       MessageBroadcastJob.perform_now(message, current_user)
     end
