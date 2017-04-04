@@ -1,11 +1,20 @@
 <h1>Rooms#show</h1>
 <hr>
-<div id="messages">
-<%= render @messages %>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div id="messages">
+      <%= render @messages %>
+    </div>
+  </div>
 </div>
-<br>
-<form>
-<input type="text" data-behaviour="room_speaker">
+<div class="row">
+<div class="col-md-4"></div>
+  <div class="col-md-4">
+    <form>
+      <input type="text" data-behaviour="room_speaker" class="form-control">
 <hidden id="user_id" value="<%=current_user.id%>" >
 
-</form>
+    </form>
+  </div>
+</div>
