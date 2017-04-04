@@ -8,10 +8,10 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     $('#messages').append data['message']
 
-  speak: (message) ->
-    @perform 'speak', message: message
+  speak: (message, id) ->
+    @perform 'speak', message: message, user_id: id
 $(document).on 'keypress', "[data-behaviour~=room_speaker]", (event) ->
   if event.keyCode is 13
-    App.room.speak event.target.value
+    App.room.speak(event.target.value, $("#user_id").value);
     event.target.value = ''
     event.preventDefault();
