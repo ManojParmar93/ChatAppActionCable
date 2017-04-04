@@ -1,12 +1,13 @@
 class MessageBroadcastJob < ApplicationJob
   queue_as :urgent
 
-  def perform(message)
-    ActionCable.server.broadcast('room_channel', message: render_message(message))
+  def perform(message, current_user)
+    ActionCable.server.broadcast('room_channel', message: render_message(message, current_user))
   end
 
   private
-  def render_message(message)
-    ApplicationController.renderer.render(partial: 'messages/message', locals: {message: message})
+  def render_message(message, current_user)
+    binding.pry
+    ApplicationController.renderer.render(partial: 'messages/message', locals: {message: message, current_user: current_user})
   end
 end
