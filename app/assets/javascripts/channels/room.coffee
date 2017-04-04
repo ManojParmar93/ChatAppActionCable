@@ -12,6 +12,6 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     @perform 'speak', message: message, user_id: id
 $(document).on 'keypress', "[data-behaviour~=room_speaker]", (event) ->
   if event.keyCode is 13
-    App.room.speak(event.target.value, $("#user_id").value);
+    App.room.speak(event.target.value, $("#user_id").val());
     event.target.value = ''
     event.preventDefault();
